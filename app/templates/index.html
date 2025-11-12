@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Welcome to Alliance Management System</h1>
+    <p class="lead">Manage your alliance members and track performance</p>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">User Profiles</h5>
+                    <p class="card-text">View and manage user profiles</p>
+                    <a href="/user" class="btn btn-primary">Visit User</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Member Search</h5>
+                    <p class="card-text">Find members quickly and efficiently</p>
+                    <a href="/search" class="btn btn-primary">Search</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Member</h5>
+                    <p class="card-text">Submit new member information</p>
+                    <a href="/submit" class="btn btn-primary">Add Member</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

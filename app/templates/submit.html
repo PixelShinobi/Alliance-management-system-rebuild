@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        {% if submitted %}
+            <!-- POST Result -->
+            <div class="text-center">
+                <h1>Member Added!</h1>
+                <p class="lead">Successfully added new member</p>
+                <div class="alert alert-success">
+                    <strong>Member name:</strong> {{ name }}
+                </div>
+                <a href="/submit" class="btn btn-primary">Submit Another</a>
+            </div>
+        {% else %}
+            <!-- GET - Show Form -->
+            <h1>Add New Member</h1>
+            <p class="lead">Enter member information below</p>
+
+            <form method="post" action="/submit">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit (POST)</button>
+            </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
