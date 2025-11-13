@@ -1,0 +1,102 @@
+{
+  "info": {
+    "name": "Alliance Management System API",
+    "description": "Collection for testing Flask API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Members (MethodView)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/members",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "members"]
+        },
+        "description": "Get all members using MethodView GET method. Returns JSON with success flag, count, and members list."
+      }
+    },
+    {
+      "name": "Add New Member (MethodView)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"role\": \"Member\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/members",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "members"]
+        },
+        "description": "Add a new member using MethodView POST method. Requires JSON body with name, email, and role fields."
+      }
+    },
+    {
+      "name": "Get All Roles (Generic ListView)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/roles",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "roles"]
+        },
+        "description": "Get all available roles using Generic ListView. Demonstrates reusable ListView base class."
+      }
+    },
+    {
+      "name": "Get All Members (Generic ListView)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/members-list",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "members-list"]
+        },
+        "description": "Alternative endpoint to get members using Generic ListView (read-only)."
+      }
+    },
+    {
+      "name": "Test Validation Error (Missing Fields)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Test User\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/members",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "members"]
+        },
+        "description": "Test validation by sending incomplete data (missing email and role). Should return 400 error."
+      }
+    }
+  ]
+}

@@ -6,7 +6,7 @@
         <h1>Search Members</h1>
         <p class="lead">Find alliance members by name or criteria</p>
 
-        <form method="get" action="/search" class="mb-4">
+        <form method="get" class="mb-4">
             <div class="mb-3">
                 <label for="query" class="form-label">Search Query:</label>
                 <input type="text" class="form-control" id="query" name="query" value="{{ query }}">
@@ -21,16 +21,14 @@
         <div class="card">
             <div class="card-body">
                 <h5>Current Parameters:</h5>
-                <ul>
+                <ul class="mb-0">
                     <li><strong>Query:</strong> "{{ query }}"</li>
                     <li><strong>Page:</strong> {{ page }}</li>
                 </ul>
             </div>
         </div>
 
-        <div class="mt-3">
-            <p><small>Try: <a href="/search?query=test&page=2">/search?query=test&page=2</a></small></p>
-        </div>
+        <p class="mt-3"><small>Try: <a href="/search?query=test&page=2">/search?query=test&page=2</a></small></p>
     </div>
 </div>
 {% endblock %}

@@ -2,8 +2,9 @@
 Alliance Management System - Flask Application
 Initialize Flask app with environment variables
 """
-from flask import Flask  
-from dotenv import load_dotenv 
+from flask import Flask
+from flask_wtf.csrf import CSRFProtect  # Import CSRF protection
+from dotenv import load_dotenv
 import os  
 
 # Load environment variables from .env file
@@ -21,7 +22,10 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-change-in-production")
 app = Flask(__name__)  
 
 # Configure Flask app
-app.config['SECRET_KEY'] = SECRET_KEY  
-app.config['DEBUG'] = DEBUG  
+app.config['SECRET_KEY'] = SECRET_KEY
+app.config['DEBUG'] = DEBUG
+
+# Enable CSRF protection for all forms
+csrf = CSRFProtect(app)  # Automatically protects all POST requests
 
 from app import routes 
