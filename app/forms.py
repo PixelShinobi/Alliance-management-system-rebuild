@@ -3,8 +3,8 @@ Alliance Management System - Form Classes
 Define forms with validations using Flask-WTF
 """
 
-from flask_wtf import FlaskForm  
-from wtforms import StringField, SelectField, SubmitField  
+from flask_wtf import FlaskForm
+from wtforms import StringField, SelectField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, Email, Length 
 
 
@@ -47,10 +47,31 @@ class MemberForm(FlaskForm):
 class ExtendedMemberForm(MemberForm):
     """Extended form that adds phone field to MemberForm"""
 
-  
+
     phone = StringField(
-        'Phone',  
+        'Phone',
         validators=[
-            Length(max=15, message='Phone number cannot exceed 15 characters')  
+            Length(max=15, message='Phone number cannot exceed 15 characters')
         ]
     )
+
+
+# Login form for web interface
+class LoginForm(FlaskForm):
+    """Form for user login"""
+
+    username = StringField(
+        'Username',
+        validators=[
+            DataRequired(message='Username is required')
+        ]
+    )
+
+    password = PasswordField(
+        'Password',
+        validators=[
+            DataRequired(message='Password is required')
+        ]
+    )
+
+    submit = SubmitField('Login')
